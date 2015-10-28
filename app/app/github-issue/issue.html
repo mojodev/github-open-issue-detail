@@ -1,0 +1,39 @@
+<div class="row ">
+<div class="col-sm-6 left-align-text"><h3>Search Open issue</h3></div>
+    <div class="col-sm-12 bottom-margin20 well">
+        <div class="col-sm-12 form-group">
+         <div class="col-sm-4">
+          <input type="text" class="form-control " ng-model="search.url" placeholder="Enter github url">
+         </div>
+         <div class="col-sm-8">
+          <button class="btn btn-primary" ng-click="getIssues(search,'1')">Issue within 24 hours</button>
+          <button class="btn btn-primary" ng-click="getIssues(search,'1-7')">Issue  24 hours ago but less than 7 day </button>
+          <button class="btn btn-primary" ng-click="getIssues(search,'7')">Issue more than 7 days ago </button>
+          <button class="btn btn-primary" ng-click="getIssues(search)">All</button>
+          </div>
+        </div>
+        <div class="col-sm-12 col-xs-12 success" ng-if="issueList.length>=0">{{issueList.length}} issue found.</div>
+    </div>
+    <div class="col-sm-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>Title</th>
+                <th>Coments</th>
+                <th>Create</th>
+                <th>Last Update</th>
+                <th>Close</th>
+            </tr>
+
+            <tr ng-repeat = "issue in issueList track by $index">
+                <th>{{issue.title}}</th>
+                <th>{{issue.comments}}</th>
+                <th>{{issue.created_at| date:'short' }}</th>
+                <th>{{issue.updated_at | date:'short'}}</th>
+                <th>
+                    <span ng-if="!issue.closed_at">Not closed yet</span>
+                    <span ng-if="issue.closed_at">{{issue.closed_at}}</span>
+                </th>
+            </tr>
+        </table>
+    </div>
+</div>
