@@ -64,3 +64,7 @@ section h2 {
 .alert {
     margin-top: 60px;
 }
+
+.error{
+    color: red;
+}
