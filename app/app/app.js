@@ -2,10 +2,10 @@
 
 //Application Module
 angular.module('GithubIssue', [
-  'ngRoute',
-  'ui.bootstrap',
-  'GithubIssue.Common'
+  'ngRoute', //routing angular app
+  'GithubIssue.Common' // created module for common purpose
 ])
+/*config block where we defined route related stuff and app configuration stuff*/
 .config(['$routeProvider','$httpProvider', function($routeProvider,$httpProvider) {
 
   $routeProvider
@@ -14,19 +14,7 @@ angular.module('GithubIssue', [
     controller: 'ListCtrl'
   })
   .otherwise({redirectTo: '/github-issue'});
-  //$httpProvider.interceptors.push('authInterceptor');
 }])
 
-.constant('baseUrl','https://api.github.com/repos/shidhincr/LookAround/issues?state=open')
+.constant('baseUrl','https://api.github.com/');;
 
-// .factory('authInterceptor', function($location, $q, $window) {
-// return {
-//     request: function(config) {
-//       config.headers = config.headers || {};
-
-//       config.headers['X-Mashape-Key']  = 'Jz8ocTfd8vmshj09dx8HXu7Zm5UPp1TQFjRjsnHTrIyhMp7XMf';
-//       config.headers['Accept'] = 'application/json';
-//       return config;
-//     }
-//   };
-// })

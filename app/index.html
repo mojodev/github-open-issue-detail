@@ -12,9 +12,9 @@
   <link rel="stylesheet" href="assets/style/app.css">
   
 </head>
-<body ng-controller="MainCtrl">
+<body>
   <div ng-include="'app/common/header.html'"></div>
-  <div class="col-sm-6 pull-right"><alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert></div>
+  
   <header id="page-top">
     <div class="container">
         <div ng-view></div>
@@ -22,16 +22,13 @@
   </header>
   <script src="../bower_components/angular/angular.js"></script>
   <script src="../bower_components/angular-route/angular-route.js"></script>
-  <script src="../bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-  <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
   
   <script src="app/app.js"></script>
   <script src="components/service/factory.js"></script>
   
   <script type="text/javascript" src="components/filter/filter.js"></script>
-  <script src="components/main.ctrl.js"></script>
-
+  
   <script src="app/github-issue/issue.ctrl.js"></script>
   
 </body>
